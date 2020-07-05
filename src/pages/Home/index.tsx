@@ -87,7 +87,11 @@ const styles = StyleSheet.create({
 
   footer: {
     backgroundColor: '#f0f0f5',
+<<<<<<< HEAD
     height: 500,
+=======
+    height: 200,
+>>>>>>> 78562dbb89457f13c16e0d73521be02646a825ed
   },
 
   select: {},

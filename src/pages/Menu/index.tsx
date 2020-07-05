@@ -66,19 +66,33 @@ const Menu = () => {
               <Text style={styles.infoDescription}>Máscaras ATIVAS neste momento.</Text>
             </View>
             <View style={styles.containerInfo}>
+<<<<<<< HEAD
               <Text style={styles.titleInfo}>{totalUse}</Text>
+=======
+              <Text style={styles.titleInfo}>0{totalUse}</Text>
+>>>>>>> 78562dbb89457f13c16e0d73521be02646a825ed
               <Text style={styles.infoDescription}>Máscaras em USO neste momento.</Text>
             </View>
             <View style={styles.containerInfo}>
               <Text style={styles.titleInfo}>{totalMasks}</Text>
               <Text style={styles.infoDescription}>TOTAL de máscaras adquiridas.</Text>
             </View>
+<<<<<<< HEAD
             <RectButton style={styles.button} onPress={handleNavigateMasks}>
               <Text style={styles.buttonText}>
                 VER MAIS
             </Text>
             </RectButton>
           </View>
+=======
+          </View>
+
+          <RectButton style={styles.button} onPress={handleNavigateMasks}>
+            <Text style={styles.buttonText}>
+              VER MAIS
+            </Text>
+          </RectButton>
+>>>>>>> 78562dbb89457f13c16e0d73521be02646a825ed
         </View>
       </View >
       <View style={styles.itemsContainer}>
@@ -178,7 +192,10 @@ const styles = StyleSheet.create({
 
   mapContainerInfo: {
     alignItems: 'center',
+<<<<<<< HEAD
     flex: 1,
+=======
+>>>>>>> 78562dbb89457f13c16e0d73521be02646a825ed
   },
 
   itemsContainer: {
