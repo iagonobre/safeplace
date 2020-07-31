@@ -4,14 +4,15 @@ import { Feather as Icon } from '@expo/vector-icons'
 import { MaterialIcons } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
+
+import { SvgCssUri } from 'react-native-svg'
 
 export default function Menu() {
   const navigation = useNavigation();
 
-  function handleNavigateDash() {
-    navigation.navigate('Dashboard')
+  function handleNavigateMasks() {
+    navigation.navigate('Masks')
   }
 
   function handleNavigateBack() {
@@ -27,25 +28,33 @@ export default function Menu() {
         </TouchableOpacity>
 
         <Text style={styles.title}>
-          Câmeras disponíveis
+          Dashboard
         </Text>
         <Text style={styles.description}>
-          Selecione uma câmera.
+          Dados da Câmera 02
         </Text>
         <View style={styles.mapContainer}>
-          <TouchableOpacity onPress={() => { }}>
-            <MaterialIcons name="refresh" size={25} color='#60AEB0' />
-          </TouchableOpacity>
-
-          <View style={styles.mapContainerInfo}>
-            <Image style={{ maxWidth: 280, height: 210, marginTop: 20 }} source={require('../../assets/cam.png')} />
+          <View style={{ alignItems: 'baseline', flexDirection: 'row', justifyContent: 'space-between', margin: 5, }}>
+            <Text style={styles.titleInfo}>Câmera 02 - Bloco 3</Text>
+            <TouchableOpacity onPress={() => { }}>
+              <MaterialIcons name="refresh" size={25} color='#60AEB0' />
+            </TouchableOpacity>
           </View>
 
-          <RectButton style={styles.button} onPress={handleNavigateDash}>
-            <Text style={styles.buttonText}>
-              VER MAIS
-              </Text>
-          </RectButton>
+          <View style={styles.mapContainerInfo}>
+            <Image style={{ maxWidth: 300, height: 130, marginTop: 10, marginBottom: 15, borderRadius: 8 }} source={require('../../assets/2.jpg')} />
+            <Text style={styles.info}>Infrações nos últimos 7 dias:</Text>
+            <View style={{ flexDirection: 'row' }}>
+              <Text style={styles.info}>HOJE:</Text>
+              <Text style={styles.infoDescription}>  1 infração</Text>
+            </View>
+            <View style={{ flexDirection: 'row' }}>
+              <Text style={styles.info}>ONTEM: </Text>
+              <Text style={styles.infoDescription}>  2 infrações</Text>
+            </View>
+            <SvgCssUri width={250} height={150} uri="https://svgshare.com/i/NRW.svg" />
+          </View>
+
         </View>
       </LinearGradient >
     </>
@@ -73,10 +82,10 @@ const styles = StyleSheet.create({
   },
 
   titleInfo: {
-    fontSize: 40,
+    fontSize: 18,
     fontFamily: 'Ubuntu_700Bold',
     marginTop: 15,
-    color: '#e9bf52',
+    color: '#60AEB0',
   },
 
   description: {
@@ -86,18 +95,24 @@ const styles = StyleSheet.create({
     fontFamily: 'Roboto_400Regular',
   },
 
+
   infoDescription: {
-    color: '#6C6C80',
+    color: '#60AEB0',
     fontSize: 15,
-    width: 150,
-    marginTop: 15,
-    marginLeft: 8,
     textAlign: 'center',
-    fontFamily: 'Roboto_400Regular',
+    fontFamily: 'Roboto_500Medium',
+  },
+
+  info: {
+    color: '#60AEB0',
+    fontSize: 15,
+    marginBottom: 5,
+    textAlign: 'center',
+    fontFamily: 'Ubuntu_700Bold',
   },
 
   mapContainer: {
-    height: 340,
+    height: 450,
     width: '100%',
     borderRadius: 10,
     overflow: 'hidden',

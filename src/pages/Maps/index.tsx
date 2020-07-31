@@ -1,18 +1,13 @@
 import React from 'react';
 import Constants from 'expo-constants';
 import { Feather as Icon } from '@expo/vector-icons'
-import { MaterialIcons } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
 
-export default function Menu() {
+export default function Maps() {
   const navigation = useNavigation();
-
-  function handleNavigateDash() {
-    navigation.navigate('Dashboard')
-  }
 
   function handleNavigateBack() {
     navigation.goBack()
@@ -27,21 +22,17 @@ export default function Menu() {
         </TouchableOpacity>
 
         <Text style={styles.title}>
-          Câmeras disponíveis
+          Locais seguros
         </Text>
         <Text style={styles.description}>
-          Selecione uma câmera.
+          Confira os locais seguros abaixo.
         </Text>
         <View style={styles.mapContainer}>
-          <TouchableOpacity onPress={() => { }}>
-            <MaterialIcons name="refresh" size={25} color='#60AEB0' />
-          </TouchableOpacity>
-
           <View style={styles.mapContainerInfo}>
-            <Image style={{ maxWidth: 280, height: 210, marginTop: 20 }} source={require('../../assets/cam.png')} />
+            <Image style={{ maxWidth: 250, height: 350, marginTop: 20, borderRadius: 15 }} source={require('../../assets/map.png')} />
           </View>
 
-          <RectButton style={styles.button} onPress={handleNavigateDash}>
+          <RectButton style={styles.button} onPress={() => { }}>
             <Text style={styles.buttonText}>
               VER MAIS
               </Text>
@@ -97,7 +88,7 @@ const styles = StyleSheet.create({
   },
 
   mapContainer: {
-    height: 340,
+    height: 450,
     width: '100%',
     borderRadius: 10,
     overflow: 'hidden',

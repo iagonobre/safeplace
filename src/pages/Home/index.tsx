@@ -1,8 +1,9 @@
 import React from 'react';
 import { Feather as Icon } from '@expo/vector-icons';
-import { View, Image, StyleSheet, Text, TextInput, KeyboardAvoidingView } from 'react-native';
+import { View, Image, StyleSheet, Text, TextInput, KeyboardAvoidingView, Platform, TouchableOpacity } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const Home = () => {
   const navigation = useNavigation();
@@ -11,35 +12,37 @@ const Home = () => {
     navigation.navigate('Menu')
   }
 
+  function handleNavigateBack() {
+    navigation.goBack()
+  }
+
   return (
-    <View style={styles.container}>
-
+    <LinearGradient colors={['#60AEB0', '#7509c1']} start={[0.0, 0.15]} end={[2.0, 1.0]} style={styles.container} >
+      <TouchableOpacity onPress={handleNavigateBack}>
+        <Icon name="arrow-left" size={25} style={{ marginTop: 20 }} color='#FFF' />
+      </TouchableOpacity>
       <View style={styles.header}>
-        <Image style={styles.logo} source={require('../../assets/logo.png')} />
-        <Text style={styles.title}>Realize o login</Text>
-        <Text style={styles.description}>Tenha em mãos a proteção necessária para os seus funcionários!</Text>
+        <Image style={{ maxWidth: 147, height: 60, marginTop: 60, marginBottom: 45 }} source={require('../../assets/logo.png')} />
       </View>
 
-      <View style={styles.main}>
-        <Image style={styles.image} source={require('../../assets/home-background.png')} />
-      </View>
-
-      <KeyboardAvoidingView style={{ flex: 1 }} behavior={'position'} >
-        <View style={styles.footer}>
-          <TextInput keyboardType="numeric" style={styles.input} placeholder='Digite o seu ID'></TextInput>
-          <RectButton style={styles.button} onPress={handleNavigateToMenu}>
-            <View style={styles.buttonIcon}>
-              <Text>
-                <Icon name="arrow-right" color="#FFF" size={24}></Icon>
-              </Text>
-            </View>
-            <Text style={styles.buttonText}>
-              Entrar
+      <KeyboardAvoidingView
+        behavior={"padding"}
+        style={{ flex: 1 }}
+      >
+        <TextInput style={styles.input} placeholder='Digite o seu ID'></TextInput>
+        <TextInput secureTextEntry={true} style={styles.input} placeholder='Digite sua senha'></TextInput>
+        <RectButton style={styles.button} onPress={handleNavigateToMenu}>
+          <View style={styles.buttonIcon}>
+            <Text>
+              <Icon name="arrow-right" color="#FFF" size={24}></Icon>
             </Text>
-          </RectButton>
-        </View>
+          </View>
+          <Text style={styles.buttonText}>
+            Entrar
+            </Text>
+        </RectButton>
       </KeyboardAvoidingView>
-    </View >
+    </LinearGradient >
   );
 }
 
@@ -47,54 +50,24 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 32,
+    justifyContent: 'space-around',
   },
 
   header: {
     alignItems: 'center',
   },
 
-  logo: {
-    width: 200,
-  },
-
   image: {
     width: 100,
     height: 173,
-    marginTop: 10,
+    marginTop: 5,
   },
 
   main: {
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#eee'
   },
-
-  title: {
-    color: '#e9bf52',
-    fontSize: 32,
-    fontFamily: 'Ubuntu_700Bold',
-    maxWidth: 260,
-  },
-
-  description: {
-    color: '#6C6C80',
-    fontSize: 16,
-    marginTop: 8,
-    fontFamily: 'Roboto_400Regular',
-    maxWidth: 270,
-    lineHeight: 22,
-    textAlign: 'center',
-  },
-
-  footer: {
-    backgroundColor: '#f0f0f5',
-<<<<<<< HEAD
-    height: 500,
-=======
-    height: 200,
->>>>>>> 78562dbb89457f13c16e0d73521be02646a825ed
-  },
-
-  select: {},
 
   input: {
     height: 60,
@@ -106,7 +79,7 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: '#e9bf52',
+    backgroundColor: '#60AEB0',
     height: 60,
     flexDirection: 'row',
     borderRadius: 10,

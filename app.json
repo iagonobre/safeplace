@@ -1,14 +1,13 @@
 {
   "expo": {
-    "name": "ProtectiOn",
-    "slug": "protection",
+    "name": "SafePlace",
+    "slug": "safeplace",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#e9bf52"
+      "resizeMode": "cover"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -20,9 +19,9 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.protection",
+      "package": "com.safeplace",
       "adaptiveIcon": {
-        "backgroundColor": "#e9bf52"
+        "backgroundColor": "#"
       }
     },
     "web": {
